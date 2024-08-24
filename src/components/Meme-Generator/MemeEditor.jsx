@@ -175,240 +175,9 @@ const MemeEditor = () => {
 
   const handleImageSelect = (image) => {
     setSelectedImage(image)
-    // No need to hide the image selector
   }
 
   return (
-    // <div className="container123 border-t border-[#535353] bg-[#191919]">
-    //   <div className="right-section bg-[#191919]">
-    //     {selectedImage && selectedTextId ? (
-    //       <div className="m-3 mb-[18px] flex w-fit items-end gap-4 lg:mx-auto lg:mb-6 lg:mt-4 lg:w-[120px] xl:w-[130px] xl:gap-6 2xl:w-[150px]">
-    //         <img
-    //           src={TextIcon}
-    //           alt="My Image"
-    //           className="w-5 translate-y-[1px] md:w-6 lg:w-7 xl:w-8 xl:translate-y-[2px] 2xl:w-9"
-    //         />
-    //         <p className="text-[13px] leading-none text-white md:text-[14px] lg:text-[15px] xl:text-[16px]">
-    //           Text Editor
-    //         </p>
-    //       </div>
-    //     ) : (
-    //       <p className="p-4 text-center">
-    //         Pick a Meme Template to Start Editing Your Meme.
-    //       </p>
-    //     )}
-
-    //     <div className="flex">
-    //       {selectedImage && selectedTextId !== null && (
-    //         <div className="w-full">
-    //           <div className=" border-b border-[#535353] px-4 py-3">
-    //             <TextEditor
-    //               text={texts.find((text) => text.id === selectedTextId)}
-    //               onTextChange={handleTextChange}
-    //               onAddText={handleAddText}
-    //               onDeleteText={handleDeleteText}
-    //               onToggleBold={handleToggleBold}
-    //               onToggleItalic={handleToggleItalic}
-    //               onToggleUnderline={handleToggleUnderline}
-    //               isAddDisabled={texts.length >= 4}
-    //             />
-    //           </div>
-
-    //           <div className="border-b border-[#535353] px-4 py-3">
-    //             <ColorPicker
-    //               currentColor={currentColor}
-    //               onColorChange={handleColorChange}
-    //             />
-    //           </div>
-
-    //           <div className="border-b border-[#535353] px-4 py-3">
-    //             <FontSelector
-    //               currentFont={
-    //                 texts.find((text) => text.id === selectedTextId)?.fontStyle
-    //               }
-    //               onFontChange={handleFontChange}
-    //             />
-    //           </div>
-
-    //           <div className="border-b border-[#535353] px-4 py-3">
-    //             <FontSizeSelector
-    //               currentSize={
-    //                 texts.find((text) => text.id === selectedTextId)?.fontSize
-    //               }
-    //               onSizeChange={handleFontSizeChange}
-    //             />
-    //           </div>
-
-    //           <div className="flex flex-col items-center justify-center">
-    //             <div className="hidden sm:block">
-    //               <button
-    //                 className="mx-3 mt-4 flex w-[100px] items-center justify-center gap-1 rounded-md bg-[#5f5f5f] py-3 text-[10px] leading-none text-white md:w-[110px] md:text-[11px] lg:mx-0 lg:w-[120px] lg:text-[12px] xl:w-[130px] xl:text-[13px] 2xl:w-[150px] 2xl:text-[14px] "
-    //                 onClick={() => setSelectedImage(null)} // Option to clear the image
-    //               >
-    //                 <MdImage className="-translate-y-[1px]" />
-    //                 Change Image
-    //               </button>
-    //             </div>
-
-    //             <div className="hidden sm:block">
-    //               <button
-    //                 className="mx-3 mt-4 flex w-[100px] items-center justify-center gap-1 rounded-md bg-[#9bc921] py-3 text-[10px] leading-none text-white md:w-[110px] md:text-[11px] lg:mx-0 lg:w-[120px] lg:text-[12px] xl:w-[130px] xl:text-[13px] 2xl:w-[150px] 2xl:text-[14px]"
-    //                 onClick={handleDownloadMeme}
-    //                 disabled={!selectedImage}
-    //               >
-    //                 <MdDownloadForOffline />
-    //                 Download
-    //               </button>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       )}
-    //     </div>
-    //   </div>
-
-    //   <div className="middle-section flex justify-center border-x border-[#535353] bg-[#191919]">
-    //     <div>
-    //       {selectedImage && selectedTextId ? (
-    //         <p className="mb-4 mt-6 text-center text-[16px] text-[#fff] sm:pl-[40px] sm:text-left md:text-[19px] lg:text-[20px] xl:text-[21px] 2xl:text-[22px]">
-    //           Meme Template
-    //         </p>
-    //       ) : (
-    //         <p className="mb-4 mt-6 text-center text-[16px] text-[#fff] sm:pl-[40px]  md:text-[19px] lg:text-[20px] xl:text-[21px] 2xl:text-[22px]">
-    //           Meme Templates
-    //         </p>
-    //       )}
-
-    //       <div
-    //         style={{
-    //           position: "relative",
-    //           width: "",
-    //           paddingLeft: "40px",
-    //           paddingRight: "40px",
-    //         }}
-    //       >
-    //         <div
-    //           ref={memeRef}
-    //           style={{ position: "relative", display: "inline-block" }}
-    //         >
-    //           {selectedImage ? (
-    //             <>
-    //               <div className="flex items-center justify-center">
-    //                 <img
-    //                   src={selectedImage}
-    //                   alt="Meme"
-    //                   style={{ width: "50%", height: "auto" }}
-    //                 />
-    //               </div>
-
-    //               {texts.map((text) => (
-    //                 <Draggable
-    //                   key={text.id}
-    //                   defaultPosition={{ x: text.x, y: text.y }}
-    //                   onStop={(e, data) => {
-    //                     const newTexts = texts.map((t) =>
-    //                       t.id === text.id ? { ...t, x: data.x, y: data.y } : t,
-    //                     )
-    //                     setTexts(newTexts)
-    //                   }}
-    //                 >
-    //                   <div
-    //                     id={`text-${text.id}`}
-    //                     style={{
-    //                       position: "absolute",
-    //                       top: 0,
-    //                       left: 0,
-    //                       color: text.color,
-    //                       fontSize: `${text.fontSize}px`,
-    //                       fontWeight: text.fontWeight,
-    //                       textDecoration: text.textDecoration,
-    //                       fontStyle: text.fontStyle,
-    //                       textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-    //                       fontFamily: text.fontStyle,
-    //                       cursor: "move",
-    //                       border:
-    //                         text.id === selectedTextId
-    //                           ? "2px dotted #fff"
-    //                           : "none",
-    //                     }}
-    //                     onClick={() => handleSelectText(text.id)}
-    //                   >
-    //                     {text.text}
-    //                   </div>
-    //                 </Draggable>
-    //               ))}
-    //             </>
-    //           ) : (
-    //             <div className="w-full">
-    //               <ImageSelector onImageSelect={handleImageSelect} />
-    //             </div>
-    //           )}
-    //         </div>
-    //         <div className="mt-16 w-[1600px]">
-    //           <Link to="/home" className="text-[75px] text-[#456]">
-    //             <Collage />
-    //           </Link>
-
-    //           {/* // new section added here */}
-
-    //           <div className="mt-6 flex flex-col items-center lg:mt-10">
-    //             <h1 className="text-center text-3xl tracking-wide sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-    //               Create more
-    //               <span className="bg-gradient-to-r from-[#F9E15C] to-[#E68C01] bg-clip-text font-bold text-transparent">
-    //                 {" "}
-    //                 MEME
-    //               </span>{" "}
-    //               in less time!
-    //             </h1>
-    //             <p
-    //               className="ml-4 mr-4 mt-6 max-w-full text-center
-    // text-base text-neutral-300 sm:ml-6
-    // sm:mr-6 sm:mt-8 sm:max-w-2xl sm:text-lg md:ml-8
-    // md:mr-8 md:mt-10 md:max-w-3xl md:text-xl lg:ml-10
-    // lg:mr-10 lg:max-w-4xl lg:text-2xl xl:ml-12 xl:mr-12
-    // xl:max-w-5xl xl:text-3xl"
-    //             >
-    //               Create and share memes instantly with MemeMaster! Choose from
-    //               templates or upload your own images. Perfect for beginners and
-    //               pros. Start creating and join the meme revolution!
-    //               <footer className="mt-6 border-t border-neutral-700 sm:mt-8 md:mt-10"></footer>
-    //             </p>
-    //           </div>
-    //         </div>
-
-    //         {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
-    //         {selectedImage && selectedTextId !== null && (
-    //           <div className="w-full">
-    //             {" "}
-    //             <div className="mb-6 mt-4 flex flex-col items-center justify-center">
-    //               <div className="block sm:hidden">
-    //                 <button
-    //                   className="mx-3 mt-4 flex w-[100px] items-center justify-center gap-1 rounded-md bg-[#5f5f5f] py-2 text-[10px] leading-none text-white md:w-[110px] md:text-[11px] lg:mx-0 lg:w-[120px] lg:text-[12px] xl:w-[130px] xl:text-[13px] 2xl:w-[150px] 2xl:text-[14px]"
-    //                   onClick={() => setSelectedImage(null)} // Option to clear the image
-    //                 >
-    //                   <MdImage className="-translate-y-[1px]" />
-    //                   Change Image
-    //                 </button>
-    //               </div>
-
-    //               <div className="block sm:hidden">
-    //                 <button
-    //                   className="mx-3 mt-4 flex w-[100px] items-center justify-center gap-1 rounded-md bg-[#9bc921] py-2 text-[10px] leading-none text-white md:w-[110px] md:text-[11px] lg:mx-0 lg:w-[120px] lg:text-[12px] xl:w-[130px] xl:text-[13px] 2xl:w-[150px] 2xl:text-[14px]"
-    //                   onClick={handleDownloadMeme}
-    //                   disabled={!selectedImage}
-    //                 >
-    //                   <MdDownloadForOffline />
-    //                   Download
-    //                 </button>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         )}
-    //         {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-
     <div
       className={`${selectedImage ? "container123 " : ""} border-t border-[#535353] bg-[#191919] ${selectedImage ? "show-right-section" : ""}`}
     >
@@ -500,6 +269,7 @@ const MemeEditor = () => {
           </div>
         </div>
       )}
+
       <div className="middle-section flex justify-center border-x border-[#535353] bg-[#191919]">
         <div>
           {selectedImage && selectedTextId ? (
@@ -530,6 +300,7 @@ const MemeEditor = () => {
                       src={selectedImage}
                       alt="Meme"
                       style={{ width: "50%", height: "auto" }}
+                      className="background-image-div-1"
                     />
                   </div>
 

@@ -1,19 +1,37 @@
-@media (min-width: 641px) {
+/* @media (min-width: 641px) {
   .container123 {
     display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-    height: 100vh; /* Adjust height as needed */
+    grid-template-columns: 10fr 1fr;
+    height: 100vh; 
   }
 }
 
 .left-section {
-  background-color: #191919; /* Example background color */
+  background-color: #191919; 
 }
 
 .middle-section {
-  background-color: #191919; /* Example background color */
+  background-color: #191919; 
 }
 
 .right-section {
-  background-color: #191919; /* Example background color */
+  background-color: #191919; 
+} */
+
+@media (min-width: 641px) {
+  .container123 {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    height: 100vh; /* Adjust height as needed */
+  }
+
+  /* Hide the right section when there's no selected image */
+  .container123:not(.show-right-section) .right-section {
+    display: none;
+  }
+
+  /* Display right section if selectedImage is true */
+  .container123.show-right-section .right-section {
+    display: block;
+  }
 }

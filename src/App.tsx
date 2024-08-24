@@ -8,6 +8,7 @@ import Login from "./components/Login/Login"
 // import store from "@/redux/store"
 // import { Toaster } from "react-hot-toast"
 // import { Provider } from "react-redux"
+//development
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 function App() {

@@ -20,6 +20,7 @@ import TextIcon from "../../assets/textEditor/Lowercase.png"
 //////////////////////////
 import logo123 from "../../assets/textEditor/collage-pic.png"
 import Collage from "../collage/collage"
+import BackgroundColorPicker from "./BgColorPicker"
 import ColorPicker from "./ColorPicker"
 import FontSelector from "./FontSelector"
 import FontSizeSelector from "./FontSizeSelector"
@@ -39,6 +40,8 @@ const MemeEditor = () => {
   const [selectedTextId, setSelectedTextId] = useState(null)
   const [currentColor, setCurrentColor] = useState("#ffffff")
   const [selectedImage, setSelectedImage] = useState(null)
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff")
+
   const memeRef = useRef(null)
 
   useEffect(() => {
@@ -177,6 +180,10 @@ const MemeEditor = () => {
     setSelectedImage(image)
   }
 
+  const handleBackgroundColorChange = (color) => {
+    setBackgroundColor(color.hex)
+  }
+
   return (
     <div
       className={`${selectedImage ? "container123 " : ""} border-t border-[#535353] bg-[#191919] ${selectedImage ? "show-right-section" : ""}`}
@@ -215,6 +222,10 @@ const MemeEditor = () => {
                     isAddDisabled={texts.length >= 4}
                   />
                 </div>
+                <BackgroundColorPicker
+                  currentColor={backgroundColor}
+                  onColorChange={handleBackgroundColorChange}
+                />
 
                 <div className="border-b border-[#535353] px-4 py-3">
                   <ColorPicker
@@ -291,7 +302,10 @@ const MemeEditor = () => {
           >
             <div
               ref={memeRef}
-              style={{ position: "relative", display: "inline-block" }}
+              style={{
+                position: "relative",
+                display: "inline-block",
+              }}
             >
               {selectedImage ? (
                 <>
@@ -299,7 +313,11 @@ const MemeEditor = () => {
                     <img
                       src={selectedImage}
                       alt="Meme"
-                      style={{ width: "50%", height: "auto" }}
+                      style={{
+                        width: "50%",
+                        height: "auto",
+                        backgroundColor: backgroundColor,
+                      }}
                       className="background-image-div-1"
                     />
                   </div>

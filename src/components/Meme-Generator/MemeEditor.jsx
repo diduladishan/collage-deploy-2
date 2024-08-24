@@ -576,37 +576,42 @@ const MemeEditor = () => {
                 </div>
               )}
             </div>
-            <div className="mt-16 w-[1600px]">
-              <Link to="/home" className="text-[75px] text-[#456]">
-                <Collage />
-              </Link>
+            {selectedImage && selectedTextId ? (
+              <div> </div>
+            ) : (
+              <div className="mt-16">
+                <Link to="/home" className="text-[75px] text-[#456]">
+                  <Collage />
+                </Link>
 
-              {/* new section added here */}
+                {/* new section added here */}
 
-              <div className="mt-6 flex flex-col items-center lg:mt-10">
-                <h1 className="text-center text-3xl tracking-wide sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-                  Create more
-                  <span className="bg-gradient-to-r from-[#F9E15C] to-[#E68C01] bg-clip-text font-bold text-transparent">
-                    {" "}
-                    MEME
-                  </span>{" "}
-                  in less time!
-                </h1>
-                <p
-                  className="ml-4 mr-4 mt-6 max-w-full text-center
+                <div className="mt-6 flex flex-col items-center lg:mt-10">
+                  <h1 className="text-center text-3xl tracking-wide sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                    Create more
+                    <span className="bg-gradient-to-r from-[#F9E15C] to-[#E68C01] bg-clip-text font-bold text-transparent">
+                      {" "}
+                      MEME
+                    </span>{" "}
+                    in less time!
+                  </h1>
+                  <p
+                    className="ml-4 mr-4 mt-6 max-w-full text-center
     text-base text-neutral-300 sm:ml-6
     sm:mr-6 sm:mt-8 sm:max-w-2xl sm:text-lg md:ml-8
     md:mr-8 md:mt-10 md:max-w-3xl md:text-xl lg:ml-10
     lg:mr-10 lg:max-w-4xl lg:text-2xl xl:ml-12 xl:mr-12
     xl:max-w-5xl xl:text-3xl"
-                >
-                  Create and share memes instantly with MemeMaster! Choose from
-                  templates or upload your own images. Perfect for beginners and
-                  pros. Start creating and join the meme revolution!
-                  <footer className="mt-6 border-t border-neutral-700 sm:mt-8 md:mt-10"></footer>
-                </p>
+                  >
+                    Create and share memes instantly with MemeMaster! Choose
+                    from templates or upload your own images. Perfect for
+                    beginners and pros. Start creating and join the meme
+                    revolution!
+                    <footer className="mt-6 border-t border-neutral-700 sm:mt-8 md:mt-10"></footer>
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
             {selectedImage && selectedTextId !== null && (
